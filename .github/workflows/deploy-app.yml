@@ -2,21 +2,21 @@ name: Deploy Flask App
 
 on:
     workflow_run:
-        workflows: ["docker build and push "] # Name of the upstream workflow
+        workflows: ["docker build and push"] # removed extra space ✅
         types: [completed]
-        branches:
-            - main
 
 jobs:
     deploy:
         runs-on: ubuntu-latest
+        if: ${{ github.event.workflow_run.conclusion == 'success' }} # added ✅
+
         env:
             DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER22 }}
             DOCKER_TAG: ${{ github.sha }}
 
         steps:
-            - name: checkout code
+            - name: Checkout Code
               uses: actions/checkout@v4
 
-            - name: deploy with docker compose
+            - name: Deploy with Docker Compose
               run: docker compose down && docker compose up -d --build --force-recreate --pull always
