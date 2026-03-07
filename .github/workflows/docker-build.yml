@@ -9,7 +9,7 @@ jobs:
 
         steps:
             - name: checkout the code
-              uses: action/checkout@v4
+              uses: actions/checkout@v4
 
             - name: login to dockerhub
               uses: docker/login@v3
