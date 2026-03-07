@@ -9,11 +9,10 @@ on:
 
 jobs:
     deploy:
+        runs-on: ubuntu-lates
         env:
             DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER22 }}
-            DOCKER_TAG: ${{ github.sha}}
-
-        runs-on: ubuntu-latest
+            DOCKER_TAG: ${{ github.sha }}
 
         steps:
             - name: checkout code
