@@ -1,0 +1,6 @@
+services:
+
+  web:
+    image: ${DOCKERHUB_USER22}//github-action-advanced:${DOCKER_TAG}
+    ports:
+     - "80:80"
