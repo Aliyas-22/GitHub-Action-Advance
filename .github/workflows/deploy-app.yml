@@ -9,7 +9,7 @@ on:
 
 jobs:
     deploy:
-        runs-on: ubuntu-lates
+        runs-on: ubuntu-latest
         env:
             DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER22 }}
             DOCKER_TAG: ${{ github.sha }}
